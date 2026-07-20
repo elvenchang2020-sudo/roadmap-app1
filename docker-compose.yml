@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:17
+    container_name: productivity_db
+
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: productivity_db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  collector:
+    build: ./collecting
+    container_name: log_collector
+
+    depends_on:
+      - db
+
+  webapp:
+    build: ./displaying
+    container_name: daily_work_dashboard
+
+    ports:
+      - "8501:8501"
+
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
