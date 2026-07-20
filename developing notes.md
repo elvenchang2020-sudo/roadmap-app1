@@ -18,11 +18,11 @@ Specifies the default command that runs when the container starts. For a Streaml
 ### 2. Image
 An Image created with the instruction in Dockerfile bundled source code, base opertaing system layer, the required libaries and the default startup command into a single read-only package.
 
-**`(In terminal) docker build -t app_name .`**  
+**(In terminal) `docker build -t app_name .`**  
 Docker follows the instructions in the Dockerfile step by step and creates the image. directory (.), follow its instructions step-by-step, and bake everything into a tagged (-t) Image named "app_name".
 
 ### 3. Container
 A Container is a live, running, isolated instance of an Image where the app is actively executing.
 
-**`docker run -p 8501:8501 -d app_name .` **   
+**(In terminal) `docker run -p 8501:8501 -d app_name .`**   
 This command takes your static Image and spins it up into a running container in the background (-d), mapping port 8501 on the local machine to port 8501 inside the container (-p).
