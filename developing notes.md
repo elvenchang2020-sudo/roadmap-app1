@@ -24,5 +24,5 @@ Docker follows the instructions in the Dockerfile step by step and creates the i
 ### 3. Container
 A Container is a live, running, isolated instance of an Image where the app is actively executing.
 
-**(In terminal) `docker run -p 8501:8501 -d app_name .`**   
+**(In terminal) `docker run -p 8501:8501 -d app_name`**   
 This command takes your static Image and spins it up into a running container in the background (-d), mapping port 8501 on the local machine to port 8501 inside the container (-p).
